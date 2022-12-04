@@ -1,0 +1,57 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - bot_alm_career
+  - bot_alm_role
+  - bot_alm_price
+
+responses:
+  utter_greet:
+  - text: "Hello! Hope are you are doing good, I am your ALM Skill Assistant, let me know how can I help?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_role:
+  - text: "What is your next role"
+
+  utter_courses:
+  - text: "Here are the courses {course} for your role"
+
+  utter_price:
+  - text: "Here is the price {price} for the course {course}"
+
+  utter_learning:
+  - text: "For your next role we have a learning Program {learningProgram} and here are some courses under it {course}"  
+  
+  utter_coursedetails:
+  - text: "For the course {name} the duration is {duration} with ratings of {rating} by users{users}.Do you want to enroll?"
+actions:
+  - action_courses
+  - action_prices
+  - action_learning
+  - action_courseDetail
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
