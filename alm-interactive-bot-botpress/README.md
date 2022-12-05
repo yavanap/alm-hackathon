@@ -6,10 +6,9 @@ Botpress is the standard developer stack to build, run and improve Conversationa
 There are a few ways to get started with Botpress:
 - Download the latest binary for your OS [here](https://botpress.com/download?utm_source=github&utm_medium=organic&utm_campaign=botpress_repo&utm_term=readme) and follow the [installation docs](https://botpress.com/docs/installation).
 - Use the official [Docker image](https://hub.docker.com/r/botpress/server) and follow the [hosting docs](https://botpress.com/docs/infrastructure/Docker)
-- Run from sources, follow [build docs](https://botpress.com/docs/infrastructure/deploying)
-- Deploy it in the cloud using these shortlinks:
+- Deploy it to cloud
 
-## Customized ALM BotPress Chat
+## Customized BotPress Chatbot for ALM
 - Interactive suggestions for the user to know more about
     - Skills
     - Courses
