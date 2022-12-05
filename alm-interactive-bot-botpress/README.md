@@ -15,6 +15,8 @@ There are a few ways to get started with Botpress:
     - Role based Learning Program
 - Custom Actions which internally uses ALM APIs
 - Prompt users to continue to get more information
+- Publish workspace to Cloud
+
 ### Design for ALM Workflows
 ![alt text](https://github.com/yavanap/alm-hackathon/blob/main/alm-interactive-bot-botpress/ALM_BotPress_Design.png?raw=true)
 ### Sample Chat
