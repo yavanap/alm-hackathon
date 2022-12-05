@@ -1,0 +1,47 @@
+{
+  "version": "0.0.1",
+  "catchAll": {},
+  "startNode": "entry",
+  "description": "",
+  "nodes": [
+    {
+      "id": "255e339b66",
+      "name": "entry",
+      "onEnter": [
+        "say #!builtin_text-z0J9qh"
+      ],
+      "onReceive": [],
+      "next": [
+        {
+          "condition": "true",
+          "conditionType": "always",
+          "node": "CallAPI-cd8948-copy"
+        }
+      ],
+      "type": "standard"
+    },
+    {
+      "id": "skill-c7fcea",
+      "type": "skill-call",
+      "skill": "CallAPI",
+      "name": "CallAPI-cd8948-copy",
+      "flow": "skills/CallAPI-c7fcea.flow.json",
+      "next": [
+        {
+          "caption": "On success",
+          "condition": "true",
+          "conditionType": "always",
+          "node": "contexts.flow.json"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "conditionType": "always",
+          "node": "END"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    }
+  ]
+}

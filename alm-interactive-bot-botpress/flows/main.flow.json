@@ -1,0 +1,323 @@
+{
+  "version": "0.0.1",
+  "catchAll": {},
+  "startNode": "entry",
+  "nodes": [
+    {
+      "id": "df052970ef",
+      "name": "entry",
+      "next": [
+        {
+          "condition": "true",
+          "conditionType": "always",
+          "node": "topic-choices"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-lbs0Re",
+        "builtin/removeContext {\"contexts\":\"\"}"
+      ],
+      "onReceive": null
+    },
+    {
+      "id": "e4887b15ba",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "topic-choices",
+      "flow": "skills/choice-62d44d.flow.json",
+      "next": [
+        {
+          "caption": "User picked [Search ...]",
+          "condition": "temp['skill-choice-ret-scibnqj7jc'] == \"Search Skills \"",
+          "node": "SkillInput"
+        },
+        {
+          "caption": "User picked [Search ...]",
+          "condition": "temp['skill-choice-ret-scibnqj7jc'] == \"Search Courses\"",
+          "node": "CourseInput"
+        },
+        {
+          "caption": "User picked [Role ba...]",
+          "condition": "temp['skill-choice-ret-scibnqj7jc'] == \"Role based Learning Programs\"",
+          "node": "RoleInput"
+        },
+        {
+          "caption": "User picked [Thankyo...]",
+          "condition": "temp['skill-choice-ret-scibnqj7jc'] == \"Thankyou.. Bye..\"",
+          "conditionType": "raw",
+          "node": "END"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "catch"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "114b7e7782",
+      "name": "catch",
+      "next": [
+        {
+          "condition": "true",
+          "conditionType": "always",
+          "node": "END"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-SKQxXN"
+      ],
+      "onReceive": null
+    },
+    {
+      "id": "aee76f551f",
+      "name": "Skills-Node",
+      "next": [
+        {
+          "condition": "true",
+          "conditionType": "always",
+          "node": "Choice-From-Skill"
+        }
+      ],
+      "onEnter": [
+        "getSkillsByName {\"name\":\"name\",\"value\":\"{{event.payload.text}}\"}"
+      ],
+      "onReceive": [],
+      "type": "standard"
+    },
+    {
+      "id": "571bf2615e",
+      "name": "SkillInput",
+      "next": [
+        {
+          "condition": "true",
+          "conditionType": "always",
+          "node": "Skills-Node"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-e8bjRP"
+      ],
+      "onReceive": [],
+      "type": "standard"
+    },
+    {
+      "id": "44e280380f",
+      "name": "Skill-Details",
+      "next": [
+        {
+          "condition": "true",
+          "conditionType": "always",
+          "node": "SkillToCourse"
+        }
+      ],
+      "onEnter": [
+        "getSkillsDetails {\"name\":\"name\",\"value\":\"{{event.payload.text}}\"}"
+      ],
+      "onReceive": [],
+      "type": "standard"
+    },
+    {
+      "id": "skill-1992d0",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "Choice-From-Skill",
+      "flow": "skills/choice-1992d0.flow.json",
+      "next": [
+        {
+          "caption": "User picked [Skill D...]",
+          "condition": "temp['skill-choice-ret-d9tn6yhiiz'] == \"Skill Detail\"",
+          "node": "Skill-Name-Input"
+        },
+        {
+          "caption": "User picked [Course ...]",
+          "condition": "temp['skill-choice-ret-d9tn6yhiiz'] == \"Course Details\"",
+          "node": "Course-Node"
+        },
+        {
+          "caption": "User picked [Start f...]",
+          "condition": "temp['skill-choice-ret-d9tn6yhiiz'] == \"Start from Beginning\"",
+          "conditionType": "raw",
+          "node": "topic-choices"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "catch"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "3cfe5a02c2",
+      "name": "Skill-Name-Input",
+      "next": [
+        {
+          "condition": "true",
+          "conditionType": "always",
+          "node": "Skill-Details"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-ohVPgB"
+      ],
+      "onReceive": [],
+      "type": "standard"
+    },
+    {
+      "id": "36591c0fc6",
+      "name": "CourseInput",
+      "next": [
+        {
+          "condition": "true",
+          "conditionType": "always",
+          "node": "Course-Node"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-ivvmCg"
+      ],
+      "onReceive": [],
+      "type": "standard"
+    },
+    {
+      "id": "2bed54bf17",
+      "name": "Course-Node",
+      "next": [
+        {
+          "condition": "true",
+          "conditionType": "always",
+          "node": "ProceedCheck"
+        }
+      ],
+      "onEnter": [
+        "getCourseByName {\"name\":\"name\",\"value\":\"{{event.payload.text}}\"}"
+      ],
+      "onReceive": [],
+      "type": "standard"
+    },
+    {
+      "id": "3415f30ae4",
+      "name": "ProceedCheck",
+      "next": [
+        {
+          "condition": "true",
+          "conditionType": "always",
+          "node": "topic-choices"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-pxmneA"
+      ],
+      "onReceive": [],
+      "type": "standard"
+    },
+    {
+      "id": "skill-bc28dd",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "ProceesChoice",
+      "flow": "skills/choice-bc28dd.flow.json",
+      "next": [
+        {
+          "caption": "User picked [Yes]",
+          "condition": "temp['skill-choice-ret-tzyevuq9xq'] == \"Yes\"",
+          "conditionType": "raw",
+          "node": "topic-choices"
+        },
+        {
+          "caption": "User picked [No]",
+          "condition": "temp['skill-choice-ret-tzyevuq9xq'] == \"No\"",
+          "conditionType": "raw",
+          "node": "END"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "conditionType": "always",
+          "node": "catch"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "f01fb9ab2c",
+      "name": "RoleInput",
+      "next": [
+        {
+          "condition": "true",
+          "conditionType": "always",
+          "node": "Learning-Options"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-MDKf4_"
+      ],
+      "onReceive": [],
+      "type": "standard"
+    },
+    {
+      "id": "21cc1616b3",
+      "name": "Learning-Options",
+      "next": [
+        {
+          "condition": "true",
+          "conditionType": "always",
+          "node": "ProceesChoice"
+        }
+      ],
+      "onEnter": [
+        "getLearningPathForRole {\"name\":\"name\",\"value\":\"{{event.payload.text}}\"}"
+      ],
+      "onReceive": [],
+      "type": "standard"
+    },
+    {
+      "id": "skill-f62904",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "SkillToCourse",
+      "flow": "skills/choice-f62904.flow.json",
+      "next": [
+        {
+          "caption": "User picked [Course ...]",
+          "condition": "temp['skill-choice-ret-1ckl6sx0g7'] == \"Course Details\"",
+          "node": "CourseBySkill"
+        },
+        {
+          "caption": "User picked [Main Me...]",
+          "condition": "temp['skill-choice-ret-1ckl6sx0g7'] == \"Main Menu\"",
+          "conditionType": "raw",
+          "node": "topic-choices"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "catch"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "0df9f058bd",
+      "name": "CourseBySkill",
+      "next": [
+        {
+          "condition": "true",
+          "conditionType": "always",
+          "node": "ProceesChoice"
+        }
+      ],
+      "onEnter": [
+        "getCourseBySkill {\"name\":\"name\",\"value\":\"{{event.payload.text}}\"}"
+      ],
+      "onReceive": [],
+      "type": "standard"
+    }
+  ]
+}

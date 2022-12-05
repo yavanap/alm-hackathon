@@ -1,0 +1,91 @@
+{
+  "version": "0.0.1",
+  "catchAll": {
+    "next": []
+  },
+  "startNode": "entry",
+  "skillData": {
+    "randomId": "d9tn6yhiiz",
+    "contentId": "builtin_single-choice-R4PYXG",
+    "invalidContentId": "",
+    "keywords": {
+      "Skill Detail": [
+        "Skill Detail",
+        "Details of a skill"
+      ],
+      "Course Details": [
+        "Course Details",
+        "Courses for a skill"
+      ],
+      "Start from Beginning": [
+        "Start from Beginning"
+      ]
+    },
+    "config": {
+      "nbMaxRetries": 3,
+      "repeatChoicesOnInvalid": false,
+      "variableName": ""
+    }
+  },
+  "nodes": [
+    {
+      "name": "entry",
+      "onEnter": [
+        "say #!builtin_single-choice-R4PYXG {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "635451"
+    },
+    {
+      "name": "parse",
+      "onReceive": [
+        "basic-skills/choice_parse_answer {\"randomId\":\"d9tn6yhiiz\",\"contentId\":\"builtin_single-choice-R4PYXG\",\"invalidContentId\":\"\",\"keywords\":{\"Skill Detail\":[\"Skill Detail\",\"Details of a skill\"],\"Course Details\":[\"Course Details\",\"Courses for a skill\"],\"Start from Beginning\":[\"Start from Beginning\"]},\"config\":{\"nbMaxRetries\":3,\"repeatChoicesOnInvalid\":false,\"variableName\":\"\"}}"
+      ],
+      "next": [
+        {
+          "condition": "temp['skill-choice-valid-d9tn6yhiiz'] === true",
+          "node": "#"
+        },
+        {
+          "condition": "true",
+          "node": "invalid"
+        }
+      ],
+      "onEnter": [],
+      "id": "161279"
+    },
+    {
+      "name": "invalid",
+      "onEnter": [
+        "basic-skills/choice_invalid_answer {\"randomId\":\"d9tn6yhiiz\"}"
+      ],
+      "next": [
+        {
+          "condition": "Number(temp['skill-choice-invalid-count-d9tn6yhiiz']) > Number(3)",
+          "node": "#"
+        },
+        {
+          "condition": "true",
+          "node": "sorry"
+        }
+      ],
+      "id": "905822"
+    },
+    {
+      "name": "sorry",
+      "onEnter": [],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "164342"
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+[
+  {
+    "id": "builtin_single-choice-elJyV5",
+    "formData": {
+      "text$en": "a",
+      "choices$en": [
+        {
+          "title": "1",
+          "value": "1"
+        },
+        {
+          "title": "2",
+          "value": "2"
+        }
+      ],
+      "typing$en": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2018-05-17T14:29:04.897Z",
+    "modifiedOn": "2019-07-01T13:51:45.562Z"
+  },
+  {
+    "id": "builtin_single-choice-mrFFU_",
+    "formData": {
+      "text$en": "What would you like to know?",
+      "choices$en": [
+        {
+          "title": "Search Skills ",
+          "value": "Search Skills "
+        },
+        {
+          "title": "Search Courses",
+          "value": "Search Courses"
+        },
+        {
+          "title": "Role based Learning Programs",
+          "value": "Role based Learning Programs"
+        },
+        {
+          "title": "Thankyou.. Bye..",
+          "value": "Thankyou.. Bye.."
+        }
+      ],
+      "typing$en": true,
+      "dropdownPlaceholder$en": "Select...",
+      "markdown$en": true,
+      "disableFreeText$en": false
+    },
+    "createdBy": "admin",
+    "createdOn": "2019-03-25T16:42:46.073Z",
+    "modifiedOn": "2022-12-04T14:18:36.661Z"
+  },
+  {
+    "id": "builtin_single-choice-yOBfeA",
+    "formData": {
+      "text$en": "Okay, let's use a simple example. Let's talk about animals. Pick one.",
+      "choices$en": [
+        {
+          "title": "Monkey",
+          "value": "monkey"
+        },
+        {
+          "title": "Giraffe",
+          "value": "giraffe"
+        }
+      ],
+      "typing$en": true,
+      "markdown$en": true,
+      "dropdownPlaceholder$en": "Select option...",
+      "disableFreeText$en": false,
+      "isDropdown$en": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2019-03-25T18:12:55.197Z",
+    "modifiedOn": "2019-07-01T13:51:45.572Z"
+  },
+  {
+    "id": "builtin_single-choice-R4PYXG",
+    "formData": {
+      "dropdownPlaceholder$en": "Select...",
+      "choices$en": [
+        {
+          "title": "Details of a skill",
+          "value": "Skill Detail"
+        },
+        {
+          "title": "Courses for a skill",
+          "value": "Course Details"
+        },
+        {
+          "title": "Start from Beginning",
+          "value": "Start from Beginning"
+        }
+      ],
+      "markdown$en": true,
+      "disableFreeText$en": false,
+      "typing$en": true,
+      "isDropdown$en": false,
+      "text$en": "Want to know more...."
+    },
+    "createdBy": "admin",
+    "createdOn": "2022-12-03T13:12:52.070Z",
+    "modifiedOn": "2022-12-03T17:03:24.333Z"
+  },
+  {
+    "id": "builtin_single-choice-TYvU2Z",
+    "formData": {
+      "dropdownPlaceholder$en": "Select...",
+      "choices$en": [
+        {
+          "title": "Yes",
+          "value": "Yes"
+        },
+        {
+          "title": "No",
+          "value": "No"
+        }
+      ],
+      "markdown$en": true,
+      "disableFreeText$en": false,
+      "typing$en": true,
+      "text$en": "Do you want to continue"
+    },
+    "createdBy": "admin",
+    "createdOn": "2022-12-03T17:21:16.194Z",
+    "modifiedOn": "2022-12-03T17:21:16.194Z"
+  },
+  {
+    "id": "builtin_single-choice-w3POI8",
+    "formData": {
+      "dropdownPlaceholder$en": "Select...",
+      "choices$en": [
+        {
+          "title": "Course Details ",
+          "value": "Course Details"
+        },
+        {
+          "title": "Back to Main Menu",
+          "value": "Main Menu"
+        }
+      ],
+      "markdown$en": true,
+      "disableFreeText$en": false,
+      "typing$en": true,
+      "text$en": "Proceed Further....."
+    },
+    "createdBy": "admin",
+    "createdOn": "2022-12-04T15:28:18.293Z",
+    "modifiedOn": "2022-12-04T17:38:58.546Z"
+  }
+]

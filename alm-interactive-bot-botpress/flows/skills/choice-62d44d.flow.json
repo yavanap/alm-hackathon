@@ -1,0 +1,92 @@
+{
+  "version": "0.0.1",
+  "catchAll": {
+    "next": []
+  },
+  "startNode": "entry",
+  "skillData": {
+    "randomId": "scibnqj7jc",
+    "contentId": "builtin_single-choice-mrFFU_",
+    "invalidContentId": "",
+    "keywords": {
+      "Search Skills ": [
+        "Search Skills "
+      ],
+      "Search Courses": [
+        "Search Courses",
+        "Course"
+      ],
+      "Role based Learning Programs": [
+        "Role based Learning Programs",
+        "Learning Program"
+      ],
+      "Thankyou.. Bye..": [
+        "Thankyou.. Bye.."
+      ]
+    },
+    "config": {
+      "nbMaxRetries": 3
+    }
+  },
+  "nodes": [
+    {
+      "name": "entry",
+      "onEnter": [
+        "say #!builtin_single-choice-mrFFU_ {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "531557"
+    },
+    {
+      "name": "parse",
+      "onReceive": [
+        "basic-skills/choice_parse_answer {\"randomId\":\"scibnqj7jc\",\"contentId\":\"builtin_single-choice-mrFFU_\",\"invalidContentId\":\"\",\"keywords\":{\"Search Skills \":[\"Search Skills \"],\"Search Courses\":[\"Search Courses\",\"Course\"],\"Role based Learning Programs\":[\"Role based Learning Programs\",\"Learning Program\"],\"Thankyou.. Bye..\":[\"Thankyou.. Bye..\"]},\"config\":{\"nbMaxRetries\":3}}"
+      ],
+      "next": [
+        {
+          "condition": "temp['skill-choice-valid-scibnqj7jc'] === true",
+          "node": "#"
+        },
+        {
+          "condition": "true",
+          "node": "invalid"
+        }
+      ],
+      "onEnter": [],
+      "id": "853809"
+    },
+    {
+      "name": "invalid",
+      "onEnter": [
+        "basic-skills/choice_invalid_answer {\"randomId\":\"scibnqj7jc\"}"
+      ],
+      "next": [
+        {
+          "condition": "Number(temp['skill-choice-invalid-count-scibnqj7jc']) > Number(3)",
+          "node": "#"
+        },
+        {
+          "condition": "true",
+          "node": "sorry"
+        }
+      ],
+      "id": "188322"
+    },
+    {
+      "name": "sorry",
+      "onEnter": [],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "404255"
+    }
+  ]
+}
