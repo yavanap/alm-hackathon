@@ -2,11 +2,18 @@ Rasa is an open source machine learning framework for building AI assistants and
 Rasa is an effective and time-efficient tool to build complex chatbots and works out of the box in dialogue management.
 
 # ALM Chatbot based out of Rasa
-As part of creating a Chatbot for ALM using Rasa, 
+### As part of creating a Chatbot for ALM using Rasa, 
 - we have created new Intents that learner would ask a ALM Chatbot - for our usecases
 - Update the Corresponding (utter) responses
 - Custom Actions which internally uses ALM APIs
 - Create stories with intents, response and actions
+- Build the ML Model with the customized data
+
+### Data Setup in ALM Portal
+- We created mutliple tags in ALM for each role
+- Created Learning Programs for different roles, and associated the tags to those Learning Programs
+- Added Courses to these learning Programs
+- The APIs use search by tag (filter.tagName) to derive the learning programs and courses for the corresponding role
 
 ### Setup Rasa and Run the demo
 ```
